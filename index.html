@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Movimentação de Estoque - Saída</title>
   <style>
     body {
@@ -114,18 +114,14 @@
         return;
       }
 
-      const dados = {
-        unidade: unidade,
-        produtos: produtosSelecionados
-      };
-
       try {
         const resposta = await fetch("https://script.google.com/macros/s/AKfycbwbPZuKWQXcDCTe0s6OjubWdPTWl4gxG84C18tlW3Aejw4vUpaxIMnqkNMlQaytysEG/exec", {
           method: "POST",
-          body: JSON.stringify(dados),
-          headers: {
-            "Content-Type": "application/json"
-          }
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            unidade: unidade,
+            produtos: produtosSelecionados
+          })
         });
 
         if (resposta.ok) {
